@@ -30,6 +30,8 @@ requestParser.parseAsync = (request) => {
       try {
         //! development note: for now, we are going to assume the body is ALWAYS going to be JSON.
         request.body = JSON.parse(completeBody);
+
+        console.log(request);
         return resolve(request);
       } catch (error) {
         //! development note: we reject here because when we return a new promise,
