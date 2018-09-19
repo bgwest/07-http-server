@@ -45,9 +45,8 @@ const app = http.createServer((req, res) => {
         res.writeHead(200,
           {
             'Content-Type': 'application/json',
-            'Path-Received': `${parsedRequest.url}`,
           });
-        res.write(JSON.parse(JSON.stringify('{"content": "<cowsay cow>"}'), 'POST converted to JSON.'));
+        res.write(cowsay.say({ text: parsedRequest.body.text }));
         // res.write(JSON.stringify({
         //   message: 'The response can be anything as long as we parse it as JSON',
         //   whoIsCute: 'Sir Gregor',
